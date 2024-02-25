@@ -1,3 +1,4 @@
+#include <stdint.h>
 #include QMK_KEYBOARD_H
 
 
@@ -90,6 +91,7 @@ void keyboard_post_init_user(void) {
     rgb_matrix_mode_noeeprom(RGB_MATRIX_CUSTOM_dark);
 }
 
+
 bool rgb_matrix_indicators_advanced_user(uint8_t led_min, uint8_t led_max) {
     if (get_highest_layer(layer_state) == _FN) {
 
@@ -104,8 +106,7 @@ bool rgb_matrix_indicators_advanced_user(uint8_t led_min, uint8_t led_max) {
     if (host_keyboard_led_state().caps_lock) {
         for(uint8_t i = 2; i < 12; i++){
             RGB_MATRIX_INDICATOR_SET_COLOR(i, 100, 180, 200);
-            // turns on the leds for the number row when caps lock is pressed
-        }
+            }
     }
     return false;
 
